@@ -74,10 +74,12 @@ function destroyChart(id) {
     }
 }
 
-// Chart defaults
-Chart.defaults.color = '#9ca3af';
-Chart.defaults.borderColor = '#2d3348';
-Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif';
+// Chart defaults (guarded so a failed Chart.js load never breaks the app)
+if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = '#9ca3af';
+    Chart.defaults.borderColor = '#2d3348';
+    Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif';
+}
 
 // ==================== IMPORT ====================
 
@@ -110,45 +112,104 @@ async function loadImportStatus() {
 }
 
 // File upload
-const uploadArea = document.getElementById('upload-area');
-const fileInput = document.getElementById('file-input');
+function setupUploadArea(areaId, inputId, suffix) {
+    const uploadArea = document.getElementById(areaId);
+    const fileInput = document.getElementById(inputId);
+    if (!uploadArea || !fileInput) return;
 
-if (uploadArea) {
     uploadArea.addEventListener('click', () => fileInput.click());
 
     uploadArea.addEventListener('dragover', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         uploadArea.classList.add('dragover');
     });
 
-    uploadArea.addEventListener('dragleave', () => {
+    uploadArea.addEventListener('dragleave', (e) => {
+        e.preventDefault();
         uploadArea.classList.remove('dragover');
     });
 
     uploadArea.addEventListener('drop', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         uploadArea.classList.remove('dragover');
-        handleFiles(e.dataTransfer.files);
+        hideGlobalDropOverlay();
+        handleFiles(e.dataTransfer.files, suffix);
     });
 
     fileInput.addEventListener('change', (e) => {
-        handleFiles(e.target.files);
+        handleFiles(e.target.files, suffix);
+        e.target.value = '';
     });
 }
 
-async function handleFiles(files) {
-    for (const file of files) {
-        await uploadFile(file);
-    }
-    loadImportStatus();
+setupUploadArea('upload-area', 'file-input', '');
+setupUploadArea('upload-area-sessions', 'file-input-sessions', '-sessions');
+
+// Global drag & drop overlay — drop CSVs anywhere in the app
+const dropOverlay = document.createElement('div');
+dropOverlay.id = 'global-drop-overlay';
+dropOverlay.innerHTML = `
+    <div class="global-drop-inner">
+        <div class="upload-icon">&#128230;</div>
+        <div>Drop CSV files to import</div>
+    </div>`;
+dropOverlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(15,17,23,0.85);' +
+    'border:3px dashed var(--accent);align-items:center;justify-content:center;text-align:center;' +
+    'font-size:20px;color:var(--text-secondary);';
+document.body.appendChild(dropOverlay);
+
+function hideGlobalDropOverlay() {
+    dropOverlay.style.display = 'none';
 }
 
-async function uploadFile(file) {
-    const progressEl = document.getElementById('upload-progress');
-    const statusEl = document.getElementById('upload-status');
-    const percentEl = document.getElementById('upload-percent');
-    const barEl = document.getElementById('progress-bar');
-    const resultEl = document.getElementById('upload-result');
+let dragDepth = 0;
+window.addEventListener('dragenter', (e) => {
+    e.preventDefault();
+    if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) {
+        dragDepth++;
+        dropOverlay.style.display = 'flex';
+    }
+});
+window.addEventListener('dragover', (e) => e.preventDefault());
+window.addEventListener('dragleave', (e) => {
+    e.preventDefault();
+    dragDepth = Math.max(0, dragDepth - 1);
+    if (dragDepth === 0) hideGlobalDropOverlay();
+});
+window.addEventListener('drop', (e) => {
+    dragDepth = 0;
+    hideGlobalDropOverlay();
+    if (e.defaultPrevented) return;
+    e.preventDefault();
+    if (e.dataTransfer && e.dataTransfer.files.length > 0) {
+        handleFiles(e.dataTransfer.files, currentPage === 'imports' ? '-sessions' : '');
+    }
+});
+
+async function handleFiles(files, suffix = '') {
+    const csvFiles = Array.from(files).filter(f =>
+        f.name.toLowerCase().endsWith('.csv') || f.type === 'text/csv');
+    if (csvFiles.length === 0) {
+        alert('Please drop or select CSV files only.');
+        return;
+    }
+    for (const file of csvFiles) {
+        await uploadFile(file, suffix);
+    }
+    loadImportStatus();
+    if (typeof loadSessions === 'function') {
+        loadSessions();
+    }
+}
+
+async function uploadFile(file, suffix = '') {
+    const progressEl = document.getElementById(`upload-progress${suffix}`);
+    const statusEl = document.getElementById(`upload-status${suffix}`);
+    const percentEl = document.getElementById(`upload-percent${suffix}`);
+    const barEl = document.getElementById(`progress-bar${suffix}`);
+    const resultEl = document.getElementById(`upload-result${suffix}`);
 
     progressEl.style.display = 'block';
     statusEl.textContent = `Uploading ${file.name}...`;
@@ -263,6 +324,10 @@ async function loadDashboard() {
 }
 
 function loadDashboardCharts(data) {
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js failed to load — charts disabled. Import/upload still works.');
+        return;
+    }
     // Traffic over time
     destroyChart('traffic-time');
     const timeCtx = document.getElementById('chart-traffic-time').getContext('2d');
@@ -688,6 +753,10 @@ async function loadTimeline() {
     const interval = document.getElementById('timeline-interval').value;
     const app = document.getElementById('timeline-app')?.value || '';
     const domain = document.getElementById('timeline-domain')?.value || '';
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js failed to load — timeline chart disabled.');
+        return;
+    }
 
     try {
         const data = await apiGet('/api/dashboard/timeline', { interval, app, domain });
@@ -923,6 +992,10 @@ function renderOvernightInsights(insights) {
 async function loadOvernightTimeline() {
     if (!onNight) return;
     const bucket = document.getElementById('on-bucket').value;
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js failed to load — overnight chart disabled.');
+        return;
+    }
     try {
         const data = await apiGet(`/api/overnight/night/${onNight}/timeline`, { bucket_minutes: bucket });
         const buckets = data.buckets;

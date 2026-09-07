@@ -14,3 +14,6 @@ data/*.db.export
 
 # Exports
 *.export
+
+# Local knowledge-graph tooling artifacts
+graphify-out/

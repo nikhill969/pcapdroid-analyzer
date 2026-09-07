@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCAPdroid Analyzer</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css?v=3">
+    <script src="/static/vendor/chart.umd.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -27,13 +27,14 @@
         <a class="nav-item" data-page="privacy" onclick="navigateTo('privacy')">Privacy</a>
         <a class="nav-item" data-page="timeline" onclick="navigateTo('timeline')">Timeline</a>
         <a class="nav-item" data-page="search" onclick="navigateTo('search')">Search</a>
+        <a class="nav-item" data-page="import" onclick="navigateTo('import')">Import</a>
         <a class="nav-item" data-page="imports" onclick="navigateTo('imports')">Imports</a>
         <a class="nav-item" data-page="settings" onclick="navigateTo('settings')">Settings</a>
     </nav>
 
     <main class="main">
         <!-- IMPORT PAGE (legacy entry; Sessions page is the primary import view) -->
-        <div id="page-import" class="page" style="display:none;">
+        <div id="page-import" class="page">
             <h2 class="mb-2">Import PCAPdroid CSV</h2>
             <div class="card">
                 <div class="upload-area" id="upload-area">
@@ -335,6 +336,24 @@
         <div id="page-imports" class="page">
             <h2 class="mb-2">Recording Sessions</h2>
             <div class="card mb-2">
+                <div class="upload-area" id="upload-area-sessions">
+                    <div class="upload-icon">&#128230;</div>
+                    <div class="upload-text">Drop CSV files here or click to browse</div>
+                    <div class="upload-hint">PCAPdroid CSV exports • Max 500MB</div>
+                    <input type="file" id="file-input-sessions" accept=".csv" multiple style="display:none">
+                </div>
+                <div id="upload-progress-sessions" style="display:none; margin-top: 16px;">
+                    <div class="flex-between mb-1">
+                        <span id="upload-status-sessions" class="text-secondary">Uploading...</span>
+                        <span id="upload-percent-sessions" class="text-accent">0%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" id="progress-bar-sessions" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div id="upload-result-sessions"></div>
+            </div>
+            <div class="card mb-2">
                 <div class="filters">
                     <button class="btn btn-primary" onclick="navigateTo('import')">+ Import CSV files</button>
                     <span class="text-muted" style="align-self:center;">Each imported CSV becomes a separate recording session.</span>
@@ -445,6 +464,6 @@
         </div>
     </main>
 
-    <script src="/static/js/app.js"></script>
+    <script src="/static/js/app.js?v=3"></script>
 </body>
 </html>
