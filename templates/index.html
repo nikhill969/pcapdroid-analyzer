@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCAPdroid Analyzer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="logo" onclick="navigateTo('dashboard')">PCAPdroid Analyzer</a>
+            <span class="offline-badge">OFFLINE MODE</span>
+        </div>
+        <div class="header-right">
+            <span id="record-count" class="text-muted" style="font-size: 13px;"></span>
+        </div>
+    </header>
+
+    <nav class="nav" id="nav">
+        <a class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">Dashboard</a>
+        <a class="nav-item" data-page="overnight" onclick="navigateTo('overnight')">Overnight</a>
+        <a class="nav-item" data-page="apps" onclick="navigateTo('apps')">Apps</a>
+        <a class="nav-item" data-page="domains" onclick="navigateTo('domains')">Domains</a>
+        <a class="nav-item" data-page="dns" onclick="navigateTo('dns')">DNS</a>
+        <a class="nav-item" data-page="privacy" onclick="navigateTo('privacy')">Privacy</a>
+        <a class="nav-item" data-page="timeline" onclick="navigateTo('timeline')">Timeline</a>
+        <a class="nav-item" data-page="search" onclick="navigateTo('search')">Search</a>
+        <a class="nav-item" data-page="imports" onclick="navigateTo('imports')">Imports</a>
+        <a class="nav-item" data-page="settings" onclick="navigateTo('settings')">Settings</a>
+    </nav>
+
+    <main class="main">
+        <!-- IMPORT PAGE (legacy entry; Sessions page is the primary import view) -->
+        <div id="page-import" class="page" style="display:none;">
+            <h2 class="mb-2">Import PCAPdroid CSV</h2>
+            <div class="card">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">&#128230;</div>
+                    <div class="upload-text">Drop CSV files here or click to browse</div>
+                    <div class="upload-hint">PCAPdroid CSV exports • Max 500MB</div>
+                    <input type="file" id="file-input" accept=".csv" multiple style="display:none">
+                </div>
+                <div id="upload-progress" style="display:none; margin-top: 16px;">
+                    <div class="flex-between mb-1">
+                        <span id="upload-status" class="text-secondary">Uploading...</span>
+                        <span id="upload-percent" class="text-accent">0%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div id="upload-result"></div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">Import History</span>
+                </div>
+                <div id="import-history"></div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <div id="page-dashboard" class="page active">
+            <h2 class="mb-2">Overview Dashboard</h2>
+            <div id="dashboard-stats" class="stats-grid"></div>
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Traffic Over Time</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-traffic-time"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Traffic by App</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-traffic-app"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Connections by App</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-connections-app"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Traffic by Protocol</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-traffic-protocol"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPS PAGE -->
+        <div id="page-apps" class="page">
+            <div id="apps-list-view">
+                <h2 class="mb-2">App Analysis</h2>
+                <div class="card">
+                    <div class="filters">
+                        <select class="input input-sm" id="app-sort" onchange="loadApps()">
+                            <option value="total_bytes">Sort by: Total Traffic</option>
+                            <option value="bytes_sent">Sort by: Data Sent</option>
+                            <option value="bytes_received">Sort by: Data Received</option>
+                            <option value="connections">Sort by: Connections</option>
+                            <option value="destinations">Sort by: Destinations</option>
+                        </select>
+                        <select class="input input-sm" id="app-order" onchange="loadApps()">
+                            <option value="desc">Descending</option>
+                            <option value="asc">Ascending</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>App</th>
+                                    <th>Package</th>
+                                    <th>Sent</th>
+                                    <th>Received</th>
+                                    <th>Total</th>
+                                    <th>Connections</th>
+                                    <th>Destinations</th>
+                                    <th>DNS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="apps-table-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="apps-pagination"></div>
+                </div>
+            </div>
+            <div id="apps-detail-view" style="display:none;"></div>
+        </div>
+
+        <!-- DOMAINS PAGE -->
+        <div id="page-domains" class="page">
+            <h2 class="mb-2">Domain Analysis</h2>
+            <div class="card">
+                <div class="filters">
+                    <input type="text" class="input input-sm" id="domain-search" placeholder="Search domains..." onkeyup="loadDomains()">
+                    <select class="input input-sm" id="domain-sort" onchange="loadDomains()">
+                        <option value="connections">Sort by: Connections</option>
+                        <option value="total_bytes">Sort by: Total Traffic</option>
+                        <option value="bytes_sent">Sort by: Data Sent</option>
+                        <option value="bytes_received">Sort by: Data Received</option>
+                    </select>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Domain</th>
+                                <th>Apps</th>
+                                <th>Connections</th>
+                                <th>Sent</th>
+                                <th>Received</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="domains-table-body"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="domains-pagination"></div>
+            </div>
+        </div>
+
+        <!-- DNS PAGE -->
+        <div id="page-dns" class="page">
+            <h2 class="mb-2">DNS Analysis</h2>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">DNS Domains</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Domain</th>
+                                <th>Apps</th>
+                                <th>Queries</th>
+                                <th>Sent</th>
+                                <th>Received</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dns-table-body"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="dns-pagination"></div>
+            </div>
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">App → DNS Domain Mapping</span>
+                </div>
+                <div id="dns-mapping"></div>
+            </div>
+        </div>
+
+        <!-- PRIVACY PAGE -->
+        <div id="page-privacy" class="page">
+            <h2 class="mb-2">Privacy Metrics</h2>
+            <div class="alert alert-info">
+                These metrics help you understand your network privacy. No labels are made about malicious activity.
+            </div>
+            <div id="privacy-metrics"></div>
+        </div>
+
+        <!-- TIMELINE PAGE -->
+        <div id="page-timeline" class="page">
+            <h2 class="mb-2">Timeline</h2>
+            <div class="card">
+                <div class="filters">
+                    <select class="input input-sm" id="timeline-interval" onchange="loadTimeline()">
+                        <option value="hour">By Hour</option>
+                        <option value="day">By Day</option>
+                    </select>
+                    <input type="text" class="input input-sm" id="timeline-app" placeholder="Filter by app...">
+                    <input type="text" class="input input-sm" id="timeline-domain" placeholder="Filter by domain...">
+                    <button class="btn btn-sm btn-primary" onclick="loadTimeline()">Apply</button>
+                </div>
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="chart-timeline"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERNIGHT PAGE -->
+        <div id="page-overnight" class="page">
+            <h2 class="mb-1">Overnight Activity</h2>
+            <p class="text-muted mb-2">While I was asleep, what was my phone doing on the internet?</p>
+
+            <div class="card mb-2">
+                <div class="filters">
+                    <label class="text-secondary" style="align-self:center;">Sleep window</label>
+                    <input type="time" class="input input-sm" id="on-sleep-start" value="23:00">
+                    <span class="text-muted" style="align-self:center;">to</span>
+                    <input type="time" class="input input-sm" id="on-sleep-end" value="07:00">
+                    <button class="btn btn-sm btn-primary" onclick="saveSleepConfig()">Save window</button>
+                    <select class="input input-sm" id="on-night-select" onchange="loadOvernightNight()"></select>
+                    <select class="input input-sm" id="on-bucket" onchange="loadOvernightTimeline()">
+                        <option value="5">5-min buckets</option>
+                        <option value="15" selected>15-min buckets</option>
+                        <option value="30">30-min buckets</option>
+                    </select>
+                </div>
+                <div id="on-config-status" class="text-muted" style="font-size:12px;"></div>
+            </div>
+
+            <div id="on-summary" class="stats-grid"></div>
+
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Overnight Timeline</span>
+                        <span class="text-muted" style="font-size:12px;">traffic per bucket — idle gaps are visible</span>
+                    </div>
+                    <div class="chart-container" style="height:300px;">
+                        <canvas id="chart-overnight-timeline"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Traffic by App (overnight)</span>
+                    </div>
+                    <div class="chart-container" style="height:300px;">
+                        <canvas id="chart-overnight-apps"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">Activity Bursts</span>
+                    <span class="text-muted" style="font-size:12px;">statistical, neutral labels — a burst is not a judgment</span>
+                </div>
+                <div id="on-bursts"></div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">Factual Observations</span>
+                </div>
+                <div id="on-insights"></div>
+            </div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">Apps Overnight</span>
+                    <span class="text-muted" style="font-size:12px;">click an app for destinations and raw connections</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>App</th>
+                                <th>Package</th>
+                                <th>Sent</th>
+                                <th>Received</th>
+                                <th>Total</th>
+                                <th>Connections</th>
+                                <th>Domains</th>
+                                <th>First activity</th>
+                                <th>Last activity</th>
+                                <th>Baseline</th>
+                            </tr>
+                        </thead>
+                        <tbody id="on-apps-body"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="on-apps-pagination"></div>
+            </div>
+
+            <div id="on-app-detail" style="display:none;"></div>
+
+            <div class="card mt-2">
+                <div class="card-header">
+                    <span class="card-title">Multi-Night Comparison</span>
+                    <span class="text-muted" style="font-size:12px;">last night vs average of previous nights</span>
+                </div>
+                <div id="on-comparison"></div>
+            </div>
+        </div>
+
+        <!-- IMPORTS / SESSIONS PAGE -->
+        <div id="page-imports" class="page">
+            <h2 class="mb-2">Recording Sessions</h2>
+            <div class="card mb-2">
+                <div class="filters">
+                    <button class="btn btn-primary" onclick="navigateTo('import')">+ Import CSV files</button>
+                    <span class="text-muted" style="align-self:center;">Each imported CSV becomes a separate recording session.</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Sessions</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Filename</th>
+                                <th>Imported at</th>
+                                <th>First packet</th>
+                                <th>Last packet</th>
+                                <th>Rows</th>
+                                <th>Traffic</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="sessions-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETTINGS PAGE -->
+        <div id="page-settings" class="page">
+            <h2 class="mb-2">Settings</h2>
+
+            <div class="card mb-2">
+                <div class="card-header"><span class="card-title">Sleep Window (overnight period)</span></div>
+                <div class="filters">
+                    <label class="text-secondary" style="align-self:center;">Sleep start</label>
+                    <input type="time" class="input input-sm" id="set-sleep-start" value="23:00">
+                    <label class="text-secondary" style="align-self:center;">Sleep end</label>
+                    <input type="time" class="input input-sm" id="set-sleep-end" value="07:00">
+                    <button class="btn btn-primary" onclick="saveSleepConfig()">Save</button>
+                </div>
+                <div class="text-muted" style="font-size:12px;">
+                    The overnight window may span midnight. Traffic inside this window is labeled
+                    "overnight traffic" — it does not automatically mean the device was idle.
+                </div>
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-header"><span class="card-title">Export</span></div>
+                <div class="filters">
+                    <a class="btn btn-secondary" href="/api/sessions/export/database">Export database (RAW DATA)</a>
+                    <a class="btn btn-secondary" href="/api/sessions/export/analysis" onclick="return exportAnalysis()">Export analysis (DERIVED AGGREGATES)</a>
+                </div>
+                <div class="text-muted" style="font-size:12px;">
+                    RAW DATA = the SQLite database with original connection records.
+                    DERIVED AGGREGATES = computed summaries only.
+                </div>
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-header"><span class="card-title">Data Retention</span></div>
+                <div class="filters">
+                    <button class="btn btn-danger" onclick="deleteAllData()">Delete ALL imported data</button>
+                </div>
+                <div class="text-muted" style="font-size:12px;">
+                    Individual recordings can be deleted on the Imports page.
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH PAGE -->
+        <div id="page-search" class="page">
+            <h2 class="mb-2">Search & Filter</h2>
+            <div class="card">
+                <div class="filters">
+                    <input type="text" class="input" id="search-q" placeholder="Search apps, domains, IPs, packages..." style="flex: 1;">
+                    <input type="text" class="input input-sm" id="search-app" placeholder="App">
+                    <input type="text" class="input input-sm" id="search-domain" placeholder="Domain">
+                    <select class="input input-sm" id="search-protocol">
+                        <option value="">All Protocols</option>
+                        <option value="TCP">TCP</option>
+                        <option value="UDP">UDP</option>
+                    </select>
+                    <input type="date" class="input input-sm" id="search-start">
+                    <input type="date" class="input input-sm" id="search-end">
+                    <button class="btn btn-primary" onclick="doSearch()">Search</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>App</th>
+                                <th>Package</th>
+                                <th>Protocol</th>
+                                <th>Destination</th>
+                                <th>Domain</th>
+                                <th>Sent</th>
+                                <th>Received</th>
+                            </tr>
+                        </thead>
+                        <tbody id="search-results-body"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="search-pagination"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

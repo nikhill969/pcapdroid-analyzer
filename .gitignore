@@ -1,0 +1,16 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Virtual envs
+venv/
+.venv/
+
+# Local database (raw data stays on your machine)
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*.db.export
+
+# Exports
+*.export

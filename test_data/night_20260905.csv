@@ -1,0 +1,147 @@
+SrcIp,SrcPort,DstIp,DstPort,UID,App,PackageName,Proto,Status,Info,BytesSent,BytesRcvd,PktsSent,PktsRcvd,FirstSeen,LastSeen
+192.168.1.100,44104,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1654,8246,2,5,2026-09-05 00:00:21,2026-09-05 00:00:50
+192.168.1.100,12803,1.1.1.1,53,u0_a1,System Update,com.android.providers.downloads,UDP,success,query A googleapis.com IN,116,263,1,2,2026-09-05 02:41:57,2026-09-05 02:41:57
+192.168.1.100,61711,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,781,5687,1,4,2026-09-05 04:00:18,2026-09-05 04:01:17
+192.168.1.100,62345,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1262,4494,2,3,2026-09-05 02:47:13,2026-09-05 02:47:24
+192.168.1.100,12232,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1661,5829,2,4,2026-09-05 01:39:10,2026-09-05 01:39:15
+192.168.1.100,8332,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1083,6916,1,4,2026-09-05 03:26:13,2026-09-05 03:26:44
+192.168.1.100,47695,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,943,4971,1,3,2026-09-05 04:11:20,2026-09-05 04:12:09
+192.168.1.100,45269,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,340,10354,1,7,2026-09-05 01:04:42,2026-09-05 01:04:52
+192.168.1.100,5296,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,950,8295,1,5,2026-09-05 00:42:51,2026-09-05 00:43:04
+192.168.1.100,1145,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1046,11634,1,8,2026-09-05 05:21:46,2026-09-05 05:22:24
+192.168.1.100,36019,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,272,4080,1,2,2026-09-05 02:07:34,2026-09-05 02:08:15
+192.168.1.100,27996,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,236,1240,1,1,2026-09-05 05:51:17,2026-09-05 05:51:52
+192.168.1.100,54268,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,420,9333,1,6,2026-09-05 02:28:58,2026-09-05 02:29:32
+192.168.1.100,35249,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1518,5607,2,4,2026-09-05 01:11:16,2026-09-05 01:11:21
+192.168.1.100,3312,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1852,10039,3,7,2026-09-05 03:07:00,2026-09-05 03:07:47
+192.168.1.100,27452,1.1.1.1,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A mtalk.google.com IN,75,267,1,2,2026-09-05 06:02:12,2026-09-05 06:02:12
+192.168.1.100,52087,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1935,3032,3,2,2026-09-05 01:11:17,2026-09-05 01:12:15
+192.168.1.100,39639,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,373,9138,1,6,2026-09-05 03:58:20,2026-09-05 03:59:02
+192.168.1.100,62893,8.8.8.8,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A cdn.whatsapp.net IN,111,180,1,2,2026-09-05 00:49:30,2026-09-05 00:49:30
+192.168.1.100,56424,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,574,2374,1,1,2026-09-05 01:39:29,2026-09-05 01:39:34
+192.168.1.100,53894,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,292,1412,1,1,2026-09-05 04:42:20,2026-09-05 04:43:08
+192.168.1.100,33909,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,749,11556,1,8,2026-09-05 00:32:24,2026-09-05 00:32:30
+192.168.1.100,7272,1.1.1.1,53,u0_a1,System Update,com.android.providers.downloads,UDP,success,query A googleapis.com IN,75,232,1,2,2026-09-05 05:21:54,2026-09-05 05:21:54
+192.168.1.100,60172,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1663,9949,2,7,2026-09-05 04:21:19,2026-09-05 04:22:07
+192.168.1.100,39788,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,521,5108,1,3,2026-09-05 05:11:25,2026-09-05 05:11:53
+192.168.1.100,22722,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1598,10085,2,7,2026-09-05 06:41:58,2026-09-05 06:42:58
+192.168.1.100,21019,1.1.1.1,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A graph.facebook.com IN,71,127,1,2,2026-09-05 04:31:46,2026-09-05 04:31:46
+192.168.1.100,40791,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1449,7921,2,5,2026-09-05 01:53:58,2026-09-05 01:54:31
+192.168.1.100,62528,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1533,1311,2,1,2026-09-05 01:43:58,2026-09-05 01:44:41
+192.168.1.100,61595,1.1.1.1,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A instagram.com IN,84,203,1,2,2026-09-05 05:20:08,2026-09-05 05:20:08
+192.168.1.100,1597,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,679,5173,1,3,2026-09-05 03:18:25,2026-09-05 03:18:50
+192.168.1.100,45952,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1002,4754,1,3,2026-09-05 06:33:17,2026-09-05 06:33:58
+192.168.1.100,30655,1.1.1.1,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A google.com IN,114,242,1,2,2026-09-05 05:28:37,2026-09-05 05:28:37
+192.168.1.100,35697,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,410,11559,1,8,2026-09-05 06:47:23,2026-09-05 06:48:22
+192.168.1.100,54488,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,746,3058,1,2,2026-09-05 01:28:15,2026-09-05 01:29:00
+192.168.1.100,62568,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1775,2457,2,1,2026-09-05 03:49:11,2026-09-05 03:49:49
+192.168.1.100,13952,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1238,1113,2,1,2026-09-05 05:50:49,2026-09-05 05:51:33
+192.168.1.100,63614,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1980,2040,3,1,2026-09-05 04:41:21,2026-09-05 04:41:31
+192.168.1.100,48907,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1470,9471,2,6,2026-09-05 01:13:49,2026-09-05 01:14:03
+192.168.1.100,45386,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,502,8465,1,6,2026-09-05 03:53:18,2026-09-05 03:54:11
+192.168.1.100,43219,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1556,9885,2,7,2026-09-05 04:19:37,2026-09-05 04:20:03
+192.168.1.100,44632,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1995,9186,3,6,2026-09-05 01:41:59,2026-09-05 01:42:05
+192.168.1.100,9494,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,394,1011,1,1,2026-09-05 02:22:24,2026-09-05 02:22:37
+192.168.1.100,24317,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,841,8948,1,6,2026-09-05 00:13:42,2026-09-05 00:14:14
+192.168.1.100,42359,1.1.1.1,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A graph.facebook.com IN,117,175,1,2,2026-09-05 02:13:44,2026-09-05 02:13:44
+192.168.1.100,63716,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,886,6925,1,4,2026-09-05 02:15:44,2026-09-05 02:16:07
+192.168.1.100,25629,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,492,2906,1,2,2026-09-05 04:51:54,2026-09-05 04:52:26
+192.168.1.100,29210,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1313,3879,2,2,2026-09-05 04:58:22,2026-09-05 04:58:55
+192.168.1.100,12001,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1985,5668,3,4,2026-09-05 03:55:47,2026-09-05 03:55:56
+192.168.1.100,25364,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,930,10190,1,7,2026-09-05 05:50:01,2026-09-05 05:50:32
+192.168.1.100,42010,142.250.80.46,443,u0_a1,Chrome,com.android.chrome,TCP,success,TLS1.2,21563,69941,35,49,2026-09-05 23:14:20,2026-09-05 23:15:12
+192.168.1.100,50251,172.217.14.206,443,u0_a1,Chrome,com.android.chrome,TCP,success,TLS1.2,4801,162797,8,116,2026-09-05 23:54:31,2026-09-05 23:54:49
+192.168.1.100,38509,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,452,7910,1,5,2026-09-05 05:01:18,2026-09-05 05:02:17
+192.168.1.100,32797,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1798,9734,2,6,2026-09-05 06:48:37,2026-09-05 06:49:01
+192.168.1.100,40572,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,543,3039,1,2,2026-09-05 01:39:19,2026-09-05 01:40:04
+192.168.1.100,53030,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,517,5800,1,4,2026-09-05 06:10:37,2026-09-05 06:11:32
+192.168.1.100,54418,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1100,9006,1,6,2026-09-05 03:55:52,2026-09-05 03:56:25
+192.168.1.100,36248,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1990,5088,3,3,2026-09-05 01:52:43,2026-09-05 01:53:28
+192.168.1.100,50027,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,954,3294,1,2,2026-09-05 06:39:04,2026-09-05 06:39:57
+192.168.1.100,15569,8.8.8.8,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A graph.facebook.com IN,58,212,1,2,2026-09-05 05:54:01,2026-09-05 05:54:01
+192.168.1.100,18046,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1367,5036,2,3,2026-09-05 03:45:36,2026-09-05 03:45:50
+192.168.1.100,37565,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1925,5375,3,3,2026-09-05 00:04:05,2026-09-05 00:04:49
+192.168.1.100,30786,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1573,5503,2,3,2026-09-05 06:07:33,2026-09-05 06:07:40
+192.168.1.100,57816,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1059,6540,1,4,2026-09-05 05:29:03,2026-09-05 05:29:11
+192.168.1.100,33581,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1048,7419,1,5,2026-09-05 01:43:48,2026-09-05 01:44:19
+192.168.1.100,61349,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1441,8687,2,6,2026-09-05 05:19:40,2026-09-05 05:19:46
+192.168.1.100,2401,8.8.8.8,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A cdn.whatsapp.net IN,76,114,1,2,2026-09-05 04:55:06,2026-09-05 04:55:06
+192.168.1.100,45309,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1440,8248,2,5,2026-09-05 02:25:35,2026-09-05 02:26:23
+192.168.1.100,60084,8.8.8.8,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A googleusercontent.com IN,79,240,1,2,2026-09-05 03:56:15,2026-09-05 03:56:15
+192.168.1.100,29386,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,644,1153,1,1,2026-09-05 00:40:05,2026-09-05 00:40:35
+192.168.1.100,45248,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1886,7194,3,5,2026-09-05 02:23:27,2026-09-05 02:23:50
+192.168.1.100,60544,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,847,9692,1,6,2026-09-05 03:52:43,2026-09-05 03:53:12
+192.168.1.100,35578,1.1.1.1,53,u0_a1,System Update,com.android.providers.downloads,UDP,success,query A googleapis.com IN,55,188,1,2,2026-09-05 05:30:02,2026-09-05 05:30:02
+192.168.1.100,12761,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1635,9536,2,6,2026-09-05 05:06:51,2026-09-05 05:07:32
+192.168.1.100,41828,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1997,9221,3,6,2026-09-05 01:30:31,2026-09-05 01:31:15
+192.168.1.100,43855,1.1.1.1,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A googleapis.com IN,117,244,1,2,2026-09-05 06:17:00,2026-09-05 06:17:00
+192.168.1.100,15317,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1133,1934,1,1,2026-09-05 00:39:49,2026-09-05 00:39:59
+192.168.1.100,5364,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,825,8050,1,5,2026-09-05 06:59:44,2026-09-05 07:00:26
+192.168.1.100,26910,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,350,8367,1,5,2026-09-05 02:10:24,2026-09-05 02:10:48
+192.168.1.100,27219,1.1.1.1,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A googleusercontent.com IN,120,86,1,2,2026-09-05 04:13:40,2026-09-05 04:13:40
+192.168.1.100,32846,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,735,11937,1,8,2026-09-05 00:54:48,2026-09-05 00:55:30
+192.168.1.100,58805,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1122,10514,1,7,2026-09-05 06:04:04,2026-09-05 06:04:09
+192.168.1.100,52717,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,235,1004,1,1,2026-09-05 00:49:22,2026-09-05 00:49:28
+192.168.1.100,43961,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1635,8684,2,6,2026-09-05 05:27:10,2026-09-05 05:27:23
+192.168.1.100,41561,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,524,1017,1,1,2026-09-05 02:06:03,2026-09-05 02:06:29
+192.168.1.100,14704,8.8.8.8,53,u0_a1,Weather,com.google.android.apps.weather,UDP,success,query A weather-api.example.com IN,62,182,1,2,2026-09-05 00:15:02,2026-09-05 00:15:02
+192.168.1.100,46140,1.1.1.1,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A google.com IN,112,108,1,2,2026-09-05 04:42:20,2026-09-05 04:42:20
+192.168.1.100,4813,8.8.8.8,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A google.com IN,103,219,1,2,2026-09-05 06:59:21,2026-09-05 06:59:21
+192.168.1.100,7110,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1917,9226,3,6,2026-09-05 03:20:43,2026-09-05 03:21:36
+192.168.1.100,13179,8.8.8.8,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A googleapis.com IN,85,185,1,2,2026-09-05 01:20:06,2026-09-05 01:20:06
+192.168.1.100,52747,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,726,3694,1,2,2026-09-05 00:41:33,2026-09-05 00:41:58
+192.168.1.100,9473,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1947,5849,3,4,2026-09-05 04:44:10,2026-09-05 04:45:00
+192.168.1.100,27802,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1313,11897,2,8,2026-09-05 03:58:10,2026-09-05 03:58:30
+192.168.1.100,46616,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,383,5709,1,4,2026-09-05 00:41:33,2026-09-05 00:42:10
+192.168.1.100,32378,1.1.1.1,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A googleapis.com IN,106,215,1,2,2026-09-05 04:53:02,2026-09-05 04:53:02
+192.168.1.100,60843,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1418,3860,2,2,2026-09-05 06:41:20,2026-09-05 06:41:36
+192.168.1.100,10477,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1341,4024,2,2,2026-09-05 01:37:31,2026-09-05 01:37:37
+192.168.1.100,58527,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,307,6226,1,4,2026-09-05 04:45:53,2026-09-05 04:46:51
+192.168.1.100,32607,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1908,10558,3,7,2026-09-05 02:41:41,2026-09-05 02:42:02
+192.168.1.100,45205,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1816,7633,3,5,2026-09-05 03:38:05,2026-09-05 03:38:33
+192.168.1.100,32214,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1393,8169,2,5,2026-09-05 03:48:22,2026-09-05 03:48:29
+192.168.1.100,15402,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,786,1122,1,1,2026-09-05 01:05:25,2026-09-05 01:06:02
+192.168.1.100,34731,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1895,8367,3,5,2026-09-05 04:48:38,2026-09-05 04:49:11
+192.168.1.100,23656,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1512,3636,2,2,2026-09-05 06:24:52,2026-09-05 06:25:03
+192.168.1.100,40416,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1307,6002,2,4,2026-09-05 00:59:19,2026-09-05 00:59:32
+192.168.1.100,20977,172.217.14.206,443,u0_a1,Chrome,com.android.chrome,TCP,success,TLS1.2,16535,201896,27,144,2026-09-05 23:37:58,2026-09-05 23:38:26
+192.168.1.100,46565,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,973,4948,1,3,2026-09-05 02:11:38,2026-09-05 02:11:55
+192.168.1.100,46478,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,348,9249,1,6,2026-09-05 04:36:12,2026-09-05 04:36:55
+192.168.1.100,45985,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,811,11666,1,8,2026-09-05 04:21:22,2026-09-05 04:22:04
+192.168.1.100,4461,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1407,8573,2,6,2026-09-05 05:22:33,2026-09-05 05:22:39
+192.168.1.100,52002,1.1.1.1,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A instagram.com IN,96,196,1,2,2026-09-05 00:51:21,2026-09-05 00:51:21
+192.168.1.100,60068,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,418,9600,1,6,2026-09-05 03:33:11,2026-09-05 03:33:49
+192.168.1.100,58054,1.1.1.1,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A cdn.whatsapp.net IN,97,154,1,2,2026-09-05 06:12:09,2026-09-05 06:12:09
+192.168.1.100,26880,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,480,964,1,1,2026-09-05 06:15:16,2026-09-05 06:15:23
+192.168.1.100,3281,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1041,3082,1,2,2026-09-05 01:53:18,2026-09-05 01:53:37
+192.168.1.100,30870,1.1.1.1,53,u0_a1,Chrome,com.android.chrome,UDP,success,query A googleapis.com IN,84,102,1,2,2026-09-05 06:56:59,2026-09-05 06:56:59
+192.168.1.100,1997,8.8.8.8,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A googleapis.com IN,102,188,1,2,2026-09-05 05:17:27,2026-09-05 05:17:27
+192.168.1.100,30558,142.250.80.46,443,u0_a1,Chrome,com.android.chrome,TCP,success,TLS1.2,18065,150077,30,107,2026-09-05 00:11:25,2026-09-05 00:11:35
+192.168.1.100,5073,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1203,9938,2,7,2026-09-05 01:56:11,2026-09-05 01:56:34
+192.168.1.100,5525,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,283,6589,1,4,2026-09-05 04:34:39,2026-09-05 04:35:07
+192.168.1.100,54527,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,329,1660,1,1,2026-09-05 05:49:04,2026-09-05 05:49:24
+192.168.1.100,45737,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1125,11304,1,8,2026-09-05 02:52:33,2026-09-05 02:52:42
+192.168.1.100,46407,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,977,4391,1,3,2026-09-05 03:45:56,2026-09-05 03:46:20
+192.168.1.100,32549,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1520,5454,2,3,2026-09-05 00:17:52,2026-09-05 00:18:51
+192.168.1.100,7690,8.8.8.8,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A mtalk.google.com IN,61,109,1,2,2026-09-05 05:06:21,2026-09-05 05:06:21
+192.168.1.100,44376,1.1.1.1,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A instagram.com IN,103,212,1,2,2026-09-05 03:05:48,2026-09-05 03:05:48
+192.168.1.100,37574,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,398,9451,1,6,2026-09-05 03:06:50,2026-09-05 03:07:03
+192.168.1.100,12472,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1254,7400,2,5,2026-09-05 06:51:23,2026-09-05 06:52:05
+192.168.1.100,51076,1.1.1.1,53,u0_a1,System Update,com.android.providers.downloads,UDP,success,query A googleapis.com IN,96,151,1,2,2026-09-05 04:56:08,2026-09-05 04:56:08
+192.168.1.100,37752,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,646,3794,1,2,2026-09-05 04:17:09,2026-09-05 04:17:47
+192.168.1.100,41951,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1309,3218,2,2,2026-09-05 03:58:20,2026-09-05 03:59:19
+192.168.1.100,49828,1.1.1.1,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A fbcdn.net IN,92,251,1,2,2026-09-05 05:04:04,2026-09-05 05:04:04
+192.168.1.100,1039,8.8.8.8,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A fbcdn.net IN,118,252,1,2,2026-09-05 00:02:41,2026-09-05 00:02:41
+192.168.1.100,32116,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1846,11449,3,8,2026-09-05 02:13:10,2026-09-05 02:13:57
+192.168.1.100,42574,1.1.1.1,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A graph.facebook.com IN,107,138,1,2,2026-09-05 02:43:51,2026-09-05 02:43:51
+192.168.1.100,47007,103.99.56.35,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1276,2363,2,1,2026-09-05 04:25:54,2026-09-05 04:26:23
+192.168.1.100,8552,8.8.8.8,53,u0_a1,WhatsApp,com.whatsapp,UDP,success,query A cdn.whatsapp.net IN,68,113,1,2,2026-09-05 00:38:54,2026-09-05 00:38:54
+192.168.1.100,3515,142.250.185.78,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1280,10356,2,7,2026-09-05 05:26:36,2026-09-05 05:27:23
+192.168.1.100,54338,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,924,10106,1,7,2026-09-05 05:53:55,2026-09-05 05:54:54
+192.168.1.100,31985,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1223,9495,2,6,2026-09-05 04:52:22,2026-09-05 04:52:48
+192.168.1.100,59015,1.1.1.1,53,u0_a1,Play Services,com.google.android.gms,UDP,success,query A googleapis.com IN,77,133,1,2,2026-09-05 04:29:26,2026-09-05 04:29:26
+192.168.1.100,47217,198.252.206.16,443,u0_a1,WhatsApp,com.whatsapp,TCP,success,TLS1.2,1012,3688,1,2,2026-09-05 01:44:27,2026-09-05 01:45:01
+192.168.1.100,37420,8.8.8.8,53,u0_a1,Instagram,com.instagram.android,UDP,success,query A fbcdn.net IN,82,156,1,2,2026-09-05 04:24:17,2026-09-05 04:24:17
+192.168.1.100,58513,35.186.224.43,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,233,789,1,1,2026-09-05 01:41:14,2026-09-05 01:41:42
+192.168.1.100,5670,142.250.80.46,443,u0_a1,Play Services,com.google.android.gms,TCP,success,TLS1.2,1437,10526,2,7,2026-09-05 05:26:56,2026-09-05 05:27:21
+192.168.1.100,62400,203.192.5.163,443,u0_a1,Weather,com.google.android.apps.weather,TCP,success,TLS1.2,1241,11771,2,8,2026-09-05 02:29:36,2026-09-05 02:30:36
