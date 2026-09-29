@@ -220,7 +220,7 @@ async function uploadFile(file, suffix = '') {
     formData.append('file', file);
 
     try {
-        const resp = await fetch('/api/import/csv', {
+        const resp = await fetch('/api/v1/import/csv', {
             method: 'POST',
             body: formData,
         });
@@ -277,7 +277,7 @@ async function uploadFile(file, suffix = '') {
 
 async function loadDashboard() {
     try {
-        const data = await apiGet('/api/dashboard/stats');
+        const data = await apiGet('/api/v1/dashboard/stats');
 
         // Stats cards
         const statsEl = document.getElementById('dashboard-stats');
@@ -453,7 +453,7 @@ async function loadApps() {
     const order = document.getElementById('app-order').value;
 
     try {
-        const data = await apiGet('/api/apps/list', { sort_by: sortBy, order, page: appPage });
+        const data = await apiGet('/api/v1/apps/list', { sort_by: sortBy, order, page: appPage });
 
         const tbody = document.getElementById('apps-table-body');
         tbody.innerHTML = data.apps.map(app => `

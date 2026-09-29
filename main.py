@@ -7,6 +7,7 @@ from app.database import init_db
 from app.routers import import_router, dashboard_router, apps_router
 from app.routers import domains_router, dns_router, privacy_router, search_router
 from app.routers import overnight_router, session_router
+from app.routers import api_v1
 
 # Initialize database
 init_db()
@@ -28,6 +29,7 @@ app.include_router(privacy_router.router)
 app.include_router(search_router.router)
 app.include_router(overnight_router.router)
 app.include_router(session_router.router)
+app.include_router(api_v1.router)
 
 # Serve static files
 static_dir = os.path.join(os.path.dirname(__file__), "static")
